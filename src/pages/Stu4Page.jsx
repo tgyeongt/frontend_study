@@ -1,6 +1,6 @@
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../components/stu4/ProductCard";
 import styled from "styled-components";
-import Toggle from "../components/Toggle";
+import Toggle from "../components/stu4/Toggle";
 import { useState } from "react";
 import { products } from "../data/products";
 
