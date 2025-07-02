@@ -18,9 +18,6 @@ export default defineConfig({
       { find: '@images', replacement: '/src/assets/images' },
       { find: '@store', replacement: '/src/store' },
       { find: '@styles', replacement: '/src/styles' },
-      { find: '@stu1-components', replacement: '/src/components/stu1' },
-      { find: '@stu1-dropdown', replacement: '/src/components/stu1/dropdown' },
-      { find: '@stu1-toppage', replacement: '/src/components/stu1/toppage' },
     ],
   },
 });
