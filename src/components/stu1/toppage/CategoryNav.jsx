@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CustomDropdown from "../dropdown/CustomDropdown";
+import CustomDropdown from "@stu1-dropdown/CustomDropdown";
 
 export default function CategoryNav({ onSortChange, onCategoryChange, activeCategory }) {
   const categories = [
