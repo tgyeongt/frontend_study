@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../components/stu1/ProductCard";
 import styled from "styled-components";
-import CategoryNav from "../components/toppage/CategoryNav";
+import CategoryNav from "../components/stu1/toppage/CategoryNav";
 import axios from "axios";
 
 export default function Stu1Page() {
