@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import HeartImg from "../assets/heart.png";
+import HeartImg from "@images/heart.png";
 
 export default function ProductCard({ name, price, image, brand, isNew }) {
   return (

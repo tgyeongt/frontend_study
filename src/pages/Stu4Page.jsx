@@ -1,8 +1,8 @@
-import ProductCard from "../components/stu4/ProductCard";
+import ProductCard from "@components/stu4/ProductCard";
 import styled from "styled-components";
-import Toggle from "../components/stu4/Toggle";
+import Toggle from "@components/stu4/Toggle";
 import { useState } from "react";
-import { products } from "../data/products";
+import { products } from "@/data/products";
 
 export default function Stu4Page() {
   const [sortType, setSortType] = useState("인기순");
