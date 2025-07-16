@@ -1,3 +1,8 @@
+import React, { useState, useEffect, useRef } from "react";
+import styled from "styled-components";
+import ProductCard from "@components/stu3/ProductCard";
+import { Link } from "react-router-dom";
+
 export default function Stu3Page() {
 
 
@@ -74,3 +79,72 @@ export default function Stu3Page() {
   );
 }
 
+const Wrapper = styled.div`
+  padding: 24px;
+`;
+const TopBar = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+`;
+const Title = styled.p`
+  font-weight: 700;
+  font-size: 2rem;
+`;
+const Controls = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 16px;
+`;
+const SortToggle = styled.div`
+  position: relative;
+  & > button {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    color: #787878;
+    outline: none;
+    &:focus,
+    &:focus-visible {
+      border: 1px solid #000;
+      color: #000;
+    }
+  }
+`;
+const FilterToggle = styled(SortToggle)``;
+const Dropdown = styled.div`
+  position: absolute;
+  top: 36px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  z-index: 10;
+  min-width: 160px;
+`;
+const DropdownOption = styled.div`
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: back-ground 0.2s ease;
+  &:hover {
+    background: #eee;
+  }
+`;
+const Divider = styled.hr`
+  margin: 0;
+  border: none;
+  border-top: 1px solid #e0e0e0;
+`;
+const ProductList = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  justify-items: center;
+`;
