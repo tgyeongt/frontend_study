@@ -9,6 +9,7 @@ export default defineConfig({
       { find: '@', replacement: '/src' },
       { find: '@api', replacement: '/src/api' },
       { find: '@components', replacement: '/src/components' },
+      
       { find: '@commons', replacement: '/src/components/commons' },
       { find: '@pages', replacement: '/src/pages' },
       { find: '@layouts', replacement: '/src/layouts' },
@@ -18,6 +19,9 @@ export default defineConfig({
       { find: '@images', replacement: '/src/assets/images' },
       { find: '@store', replacement: '/src/store' },
       { find: '@styles', replacement: '/src/styles' },
+      { find: '@logo', replacement: '/src/assets/logo'},
     ],
   },
 });
+
+
