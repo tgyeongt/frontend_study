@@ -1,6 +1,6 @@
-import Pagination from "@components/HomePage/Pagination";
-import ClothesCard from "@components/HomePage/ClothesCard";
-import SortAndQna from "@components/HomePage/SortAndQna";
+import Pagination from "@components/stu2/HomePage/Pagination";
+import ClothesCard from "@components/stu2/HomePage/ClothesCard";
+import SortAndQna from "@components/stu2/HomePage/SortAndQna";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import {
