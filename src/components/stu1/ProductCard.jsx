@@ -21,7 +21,7 @@ const Card = styled.div`
 const ProductImage = styled.img`
   width: 100%;
   height: 200px;
-  object-fit: cover;          // 비율 유지하며 잘라서 채우기
+  object-fit: cover;
 `;
 
 const ProductDescription = styled.div`
@@ -33,31 +33,26 @@ const ProductDescription = styled.div`
   height: 100px;
 `;
 
-
 const ProductBrand = styled.p`
   font-size: 11px;
-  letter-spacing: 0;
   line-height: 14px;
   color: black;
-   margin: 0;
+  margin: 0;
   font-weight: bold;
 `;
 
 const ProductName = styled.p`
   font-size: 13px;
   margin: 2px 0 0 0;
-  letter-spacing: 0;
   line-height: 18px;
   font-weight: 500;
-
   display: -webkit-box;
-  -webkit-line-clamp: 2;             // 최대 2줄만
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
   word-break: break-word;
-
-  height: 36px;                      // line-height * 2
+  height: 36px;
 `;
 
 const ProductPrice = styled.p`

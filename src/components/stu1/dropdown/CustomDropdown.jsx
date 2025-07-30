@@ -1,8 +1,8 @@
-// ✅ CustomDropdown.jsx
 import styled from "styled-components";
 import { useState } from "react";
+import React from "react";
 
-export default function CustomDropdown({ onSortChange }) {
+export default function CustomDropdown({ children, onSortChange }) {
   const [open, setOpen] = useState(false);
   const [sortLabel, setSortLabel] = useState("정렬");
 
@@ -14,20 +14,47 @@ export default function CustomDropdown({ onSortChange }) {
 
   return (
     <DropdownWrapper>
-      <DropdownButton onClick={() => setOpen(!open)}>
-        {sortLabel} ▼
-      </DropdownButton>
-      {open && (
-        <DropdownMenu>
-          <MenuItem onClick={() => handleSort("low", "낮은 가격순")}>낮은 가격순</MenuItem>
-          <MenuItem onClick={() => handleSort("high", "높은 가격순")}>높은 가격순</MenuItem>
-          <MenuItem onClick={() => handleSort("name", "이름순")}>이름순</MenuItem>
-          <MenuItem onClick={() => handleSort("reviews", "리뷰 많은 순")}>리뷰 많은 순</MenuItem>
-          <MenuItem onClick={() => handleSort("rating", "평점 순")}>평점 순</MenuItem>
-          <MenuItem onClick={() => handleSort("date", "입고일순")}>입고일순</MenuItem>
-        </DropdownMenu>
+      {React.Children.map(children, child =>
+        React.isValidElement(child)
+          ? React.cloneElement(child, { 
+              open, 
+              setOpen, 
+              sortLabel, 
+              handleSort 
+            })
+          : child
       )}
     </DropdownWrapper>
+  );
+}
+
+function Button({ open, setOpen, sortLabel }) {
+  return (
+    <DropdownButton onClick={() => setOpen(!open)}>
+      {sortLabel} ▼
+    </DropdownButton>
+  );
+}
+
+function Menu({ children, open, handleSort }) {
+  if (!open) return null;
+  
+  return (
+    <DropdownMenu>
+      {React.Children.map(children, child =>
+        React.isValidElement(child)
+          ? React.cloneElement(child, { handleSort })
+          : child
+      )}
+    </DropdownMenu>
+  );
+}
+
+function MenuItem({ children, option, label, handleSort }) {
+  return (
+    <MenuItemStyled onClick={() => handleSort(option, label)}>
+      {children}
+    </MenuItemStyled>
   );
 }
 
@@ -49,7 +76,7 @@ const DropdownButton = styled.button`
 const DropdownMenu = styled.div`
   position: absolute;
   top: 100%;
-  width: 118px;
+  width: 120px;
   right: 0;
   background-color: white;
   border: 1px solid #ddd;
@@ -57,7 +84,7 @@ const DropdownMenu = styled.div`
   z-index: 10;
 `;
 
-const MenuItem = styled.div`
+const MenuItemStyled = styled.div`
   padding: 10px 16px;
   font-size: 14px;
   cursor: pointer;
@@ -65,3 +92,7 @@ const MenuItem = styled.div`
     background-color: #f2f2f2;
   }
 `;
+
+CustomDropdown.Button = Button;
+CustomDropdown.Menu = Menu;
+CustomDropdown.MenuItem = MenuItem;
