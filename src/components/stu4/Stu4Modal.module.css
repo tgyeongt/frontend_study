@@ -1,0 +1,297 @@
+.modalBackground {
+  position: fixed;
+  top: 0;
+  left: 24px;
+  right: 0;
+  bottom: 0;
+  background: rgba(23, 23, 27, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContainer {
+  width: 336px;
+  height: 567px;
+  border-radius: 20px;
+  background: #f6f6f6;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 세로 중앙 정렬 */
+  /*align-items: center; /* 가로 중앙 정렬 */
+}
+
+.headerBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%; /* 전체 가로 길이 사용 */
+  padding: 0 20px; /* 좌우 여백 필요 시 조절 */
+  box-sizing: border-box;
+  margin-bottom: 11px; /* 아래 HeadText와 간격 */
+  position: relative;
+  margin-top: 20px;
+}
+.title {
+  color: #17171b;
+  font-family: Pretendard;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+
+  display: inline-flex;
+  padding: 8px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 100px;
+  background: #d9d9d9;
+}
+
+.cancelBtn {
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+}
+
+.headText {
+  width: 246px;
+  color: #17171b;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 25px;
+  margin-left: 24px;
+  align-items: flex-start;
+}
+
+.bodyBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 24px;
+  margin-right: 24px;
+  gap: 25px;
+}
+
+.pText {
+  color: #17171b;
+
+  font-family: Pretendard;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.promiseBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.promiseInput {
+  border: none;
+  outline: none; /* 포커스시 테두리도 제거 */
+  background: transparent; /* 필요 시 배경색 지정 */
+  color: #bcbcbc;
+
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+}
+::placeholder {
+  color: #bcbcbc;
+  opacity: 1;
+}
+
+.participantBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+  align-self: stretch;
+}
+.participantInput {
+  display: flex;
+  width: 240px;
+  height: 32px;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 100px;
+  border: 1px solid #bcbcbc;
+  text-align: center;
+  background: #f6f6f6;
+
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.05) inset;
+  font-size: 11px;
+}
+
+.participantBtn {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 100px;
+  background: #17171b;
+}
+.participantImg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+.findBtn {
+  display: flex;
+  width: 288px;
+  height: 40px;
+  /* ✅ 상하 padding 제거 또는 줄이기 */
+  padding: 0 99px;
+
+  justify-content: center;
+  align-items: center; /* ✅ 세로 중앙 정렬 */
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: #17171b;
+  color: #f6f6f6;
+
+  margin-left: 25px;
+  margin-bottom: 20px;
+
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  white-space: nowrap;
+}
+.lengthBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+}
+
+.lengthWrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 35px;
+}
+
+.lengthSpan {
+  color: #bcbcbc;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  min-width: 40px;
+  text-align: center;
+}
+
+.lengthButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.lengthArrow {
+  all: unset;
+  font-size: 12px;
+  color: #f6f6f6;
+  cursor: pointer;
+  line-height: 1;
+  text-align: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  background: #bcbcbc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lengthArrow:hover {
+  background-color: #cfcfcf;
+}
+.lengthHour {
+  color: #bcbcbc;
+
+  font-family: Pretendard;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.timeBox {
+  display: flex;
+  width: 100px;
+  height: 4px;
+  padding: 15px 13px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 100px;
+  border: 1px solid #bcbcbc;
+  margin-bottom: 5px;
+  background: #f6f6f6;
+  text-align: center;
+  font-size: 13px;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.05) inset;
+}
+.timehyphen {
+  width: 15px;
+  height: 1px;
+  background: #bcbcbc;
+}
+.setPromiseBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  align-self: stretch;
+}
+.datePickerBox {
+  display: flex;
+  flex-direction: row; /* 기존 column → row로 변경 */
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* 요소 사이 간격 */
+  align-self: stretch;
+}
+.participantInputWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px; /* input과 버튼 간격 */
+}
+.lengthArrowUp {
+  width: 10px;
+  height: 8.642px;
+  flex-shrink: 0;
+}
+.lengthArrowDown {
+  width: 10px;
+  height: 8.642px;
+  flex-shrink: 0;
+}
