@@ -1,8 +1,7 @@
-import styled from 'styled-components';
-import EventSection from "@components/home/EventSection"
+import styled from "styled-components";
+import EventSection from "@components/home/EventSection";
 
 export default function HomePage() {
-
   return (
     <>
       <MainSection>
@@ -12,7 +11,7 @@ export default function HomePage() {
       </MainSection>
       <EventSection />
     </>
-  )
+  );
 }
 
 const MainSection = styled.div`
@@ -20,21 +19,21 @@ const MainSection = styled.div`
   flex-direction: column;
   align-items: flex-start;
   margin-top: 150px;
-`
+`;
 
 const MainText = styled.p`
-  color: #1C1B1A;
+  color: #1c1b1a;
   font-size: 48px;
   font-weight: 700;
   margin-bottom: 10px;
-`
+`;
 
 const Button = styled.button`
   display: flex;
   padding: 10px 30px;
   border-radius: 30px;
-  background: #1C1B1A;
-  color: #FFF;
+  background: #1c1b1a;
+  color: #fff;
   font-size: 16px;
   font-weight: 700;
   margin-top: 20px;
@@ -42,4 +41,4 @@ const Button = styled.button`
   border: none;
   outline: none;
   cursor: pointer;
-`
+`;

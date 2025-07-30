@@ -5,7 +5,7 @@ import CategoryNav from "@components/stu1/toppage/CategoryNav";
 import axios from "axios";
 
 export default function Stu1Page() {
-  const [sortOption, onSortChange] = useState("date");
+  const [sortOption, setSortOption] = useState("date");
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -17,7 +17,7 @@ export default function Stu1Page() {
     if (category === "mydata") url = "http://localhost:3000/mydata";
     else if (category === "clothes") url = "http://localhost:3000/clothes";
     else if (category === "shoes") url = "http://localhost:3000/shoes";
-    // etc는 별도 처리 필요시 추가
+    
     axios
       .get(url)
       .then((res) => {
@@ -53,24 +53,20 @@ export default function Stu1Page() {
   return (
     <Wrapper>
       <CategoryNav
-        sortOption={sortOption}
-        onSortChange={onSortChange}
+        onSortChange={setSortOption}
         onCategoryChange={setCategory}
         activeCategory={category}
       />
-      {error && <div>{error}</div>}
-      {loading && <div>로딩 중...</div>}
+      {error && <ErrorMessage>{error}</ErrorMessage>}
+      {loading && <LoadingMessage>로딩 중...</LoadingMessage>}
       <ProductList>
-        {sortedProducts.map((product, idx) => (
+        {sortedProducts.map((product) => (
           <ProductCard
-            key={product.id + '-' + idx}
-            brand={product.brand}
-            arrived={product.arrived}
+            key={product.id}
             name={product.name}
             price={product.price}
             image={product.image}
-            reviews={product.reviews}
-            rating={product.rating}
+            brand={product.brand}
           />
         ))}
       </ProductList>
@@ -85,4 +81,23 @@ const Wrapper = styled.div`
 const ProductList = styled.div`
   display: flex;
   flex-wrap: wrap;
+`;
+
+const ErrorMessage = styled.div`
+  color: #e74c3c;
+  padding: 16px;
+  background-color: #fdf2f2;
+  border: 1px solid #fbb6b6;
+  border-radius: 4px;
+  margin-bottom: 16px;
+`;
+
+const LoadingMessage = styled.div`
+  color: #2980b9;
+  padding: 16px;
+  background-color: #f0f8ff;
+  border: 1px solid #b8daff;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  text-align: center;
 `;
