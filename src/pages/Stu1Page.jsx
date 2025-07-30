@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import ProductCard from "@components/stu1/ProductCard";
 import styled from "styled-components";
 import CategoryNav from "@components/stu1/toppage/CategoryNav";
-import axios from "axios";
+import { APIService } from "@components/stu1/api/api";
 
 export default function Stu1Page() {
   const [sortOption, setSortOption] = useState("date");
@@ -12,24 +12,39 @@ export default function Stu1Page() {
   const [category, setCategory] = useState("all");
 
   useEffect(() => {
-    setLoading(true);
-    let url = "http://localhost:3000/products";
-    if (category === "mydata") url = "http://localhost:3000/mydata";
-    else if (category === "clothes") url = "http://localhost:3000/clothes";
-    else if (category === "shoes") url = "http://localhost:3000/shoes";
-    
-    axios
-      .get(url)
-      .then((res) => {
-        setProducts(res.data);
-        setError(null);
-      })
-      .catch((err) => {
+    const fetchProducts = async () => {
+      setLoading(true);
+      setError(null);
+      setProducts([]); // 카테고리 변경 시 즉시 상품 목록 초기화
+      
+      try {
+        let endpoint = "/products";
+        if (category === "mydata") endpoint = "/mydata";
+        else if (category === "clothes") endpoint = "/clothes";
+        else if (category === "shoes") endpoint = "/shoes";
+        
+        const data = await APIService.public.get(endpoint);
+        console.log(`API 응답 (${endpoint}):`, data); // 디버깅용 로그
+        
+        // API 응답이 배열인지 확인하고 설정
+        if (Array.isArray(data)) {
+          setProducts(data);
+          console.log(`상품 설정 완료: ${data.length}개`); // 디버깅용 로그
+        } else {
+          setProducts([]);
+          setError("올바르지 않은 데이터 형식입니다.");
+          console.warn("API 응답이 배열이 아닙니다:", data);
+        }
+      } catch (err) {
         setError("상품 목록을 불러오는 데 실패했습니다.");
         setProducts([]);
-        console.error(err);
-      })
-      .finally(() => setLoading(false));
+        console.error("API Error:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
   }, [category]);
 
   const sortedProducts = [...products].sort((a, b) => {

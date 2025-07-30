@@ -11,7 +11,6 @@ export default function CategoryNav({ onSortChange, onCategoryChange, activeCate
     { label: "JH", value: "mydata" },
     { label: "Clothes", value: "clothes" },
     { label: "Shoes", value: "shoes" },
-    { label: "ETC", value: "etc" },
   ];
 
   return (
